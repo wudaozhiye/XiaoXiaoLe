@@ -147,6 +147,7 @@ public class FieldAssistant : MonoBehaviour {
             #endregion
 
         }
+        Slot.Initialize();
 
     }
     // Removing old field

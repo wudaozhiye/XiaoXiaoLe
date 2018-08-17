@@ -34,6 +34,41 @@ public class Slot : MonoBehaviour {
 
     public bool sugarDropSlot = false;
     public static Transform folder;
+    void Awake()
+    {
+        slotGravity = GetComponent<SlotGravity>();
+        slotTeleport = GetComponent<SlotTeleport>();
+    }
+    public static void Initialize()
+    {
+        foreach (Slot slot in FindObjectsOfType<Slot>())
+            if (!all.ContainsKey(slot.coord))
+                all.Add(slot.coord, slot);
+
+
+        foreach (Slot slot in all.Values)
+        {
+            foreach (Side side in Utils.allSides) // Filling of the nearby slots dictionary 
+                slot.nearSlot.Add(side, all.ContainsKey(slot.coord + side) ? all[slot.coord + side] : null);
+            slot.nearSlot.Add(Side.Null, null);
+            foreach (Side side in Utils.straightSides) // Filling of the walls dictionary
+                slot.wallMask.Add(side, false);
+        }
+
+        Side direction;
+        SlotTeleport teleport;
+        foreach (Slot slot in all.Values)
+        {
+            direction = slot.slotGravity.gravityDirection;
+            if (slot[direction])
+            {
+                slot[direction].slotGravity.fallingDirection = Utils.MirrorSide(direction);
+            }
+            teleport = slot.GetComponent<SlotTeleport>();
+            if (teleport)
+                teleport.Initialize();
+        }
+    }
 
     Chip _chip;
     public Chip chip
