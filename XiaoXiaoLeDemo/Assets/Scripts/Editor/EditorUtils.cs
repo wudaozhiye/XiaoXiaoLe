@@ -7,7 +7,35 @@ namespace EditorUtils
 {
     public class EditorCoroutine
     {
-
+        public static EditorCoroutine start(IEnumerator _routine)
+        {
+            EditorCoroutine coroutine = new EditorCoroutine(_routine);
+            coroutine.start();
+            return coroutine;
+        }
+        readonly IEnumerator routine;
+        EditorCoroutine(IEnumerator _routine)
+        {
+            routine = _routine;
+        }
+        bool isPlaying = false;
+        public void start()
+        {
+            EditorApplication.update += update;
+            isPlaying = true;
+        }
+        public void stop()
+        {
+            EditorApplication.update -= update;
+            isPlaying = false;
+        }
+        void update()
+        {
+            if (!routine.MoveNext())
+            {
+                stop();
+            }
+        }
     }
 
     public abstract class MetaEditor : Editor

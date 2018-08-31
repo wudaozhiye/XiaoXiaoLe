@@ -26,6 +26,23 @@ namespace Berry.Utils
         public static readonly Side[] straightSides = { Side.Top, Side.Bottom, Side.Right, Side.Left };
         public static readonly Side[] slantedSides = { Side.TopLeft, Side.TopRight, Side.BottomRight, Side.BottomLeft };
 
+        public static Side MirrorSide(Side s)
+        {
+            switch (s)
+            {
+                case Side.Bottom: return Side.Top;
+                case Side.Top: return Side.Bottom;
+                case Side.Left: return Side.Right;
+                case Side.Right: return Side.Left;
+                case Side.BottomLeft: return Side.TopRight;
+                case Side.BottomRight: return Side.TopLeft;
+                case Side.TopLeft: return Side.BottomRight;
+                case Side.TopRight: return Side.BottomLeft;
+            }
+            return Side.Null;
+        }
+
+
         public static T GetRandom<T>(this ICollection<T> collection)
         {
             if (collection == null)
@@ -69,6 +86,23 @@ namespace Berry.Utils
                 default: return 0;
             }
         }
+
+        public static string ToTimerFormat(float _t)
+        {
+            string f = "";
+            float t = Mathf.Ceil(_t);
+            float min = Mathf.FloorToInt(t / 60);
+            float sec = Mathf.FloorToInt(t - 60f * min);
+            f += min.ToString();
+            if (f.Length < 2)
+                f = "0" + f;
+            f += ":";
+            if (sec.ToString().Length < 2)
+                f += "0";
+            f += sec.ToString();
+            return f;
+        }
+
     }
     [System.Serializable]
     public class Int2

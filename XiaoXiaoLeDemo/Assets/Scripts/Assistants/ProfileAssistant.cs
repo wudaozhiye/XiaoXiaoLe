@@ -38,17 +38,17 @@ public class ProfileAssistant : MonoBehaviour {
         while (local_profile == null)
             yield return 0;
 
-        TimeSpan refilling_time = new TimeSpan(0, ProjectParameters.main.refilling_time, 0);
+        TimeSpan refilling_time = new TimeSpan(0, ProjectParameters.Instance.refilling_time, 0);
 
         while (true)
         {
-            while (local_profile["life"] < ProjectParameters.main.lifes_limit && local_profile.next_life_time <= DateTime.Now)
+            while (local_profile["life"] < ProjectParameters.Instance.lifes_limit && local_profile.next_life_time <= DateTime.Now)
             {
                 local_profile["life"]++;
                 local_profile.next_life_time += refilling_time;
                 ItemCounter.RefreshAll();
             }
-            if (local_profile["life"] >= ProjectParameters.main.lifes_limit)
+            if (local_profile["life"] >= ProjectParameters.Instance.lifes_limit)
                 local_profile.next_life_time = DateTime.Now + refilling_time;
             yield return new WaitForSeconds(1);
         }
@@ -154,7 +154,7 @@ public class UserProfileUtils
         if (daily_raward.Length > 0)
             profile.daily_raward = System.DateTime.FromBinary(long.Parse(daily_raward));
         else
-            profile.daily_raward = new DateTime(1971, 1, 1, ProjectParameters.main.dailyreward_hour, 0, 0);
+            profile.daily_raward = new DateTime(1971, 1, 1, ProjectParameters.Instance.dailyreward_hour, 0, 0);
 
         string inventory = PlayerPrefs.GetString("Profile_inventory");
         if (inventory.Length > 0)

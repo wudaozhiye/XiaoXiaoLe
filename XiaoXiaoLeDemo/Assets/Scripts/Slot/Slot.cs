@@ -95,4 +95,10 @@ public class Slot : MonoBehaviour {
             _chip.slot = this;
         }
     }
+    public static Slot GetSlot(Int2 position)
+    {
+        if (all.ContainsKey(position))
+            return all[position];
+        return null;
+    }
 }

@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Assistants\ProjectParameters.cs" />
     <Compile Include="Assets\Scripts\Assistants\ServiceAssistant.cs" />
     <Compile Include="Assets\Scripts\Assistants\SessionAssistant.cs" />
+    <Compile Include="Assets\Scripts\Assistants\Singleton.cs" />
     <Compile Include="Assets\Scripts\Assistants\UIAssistant.cs" />
     <Compile Include="Assets\Scripts\Chip\Chip.cs" />
     <Compile Include="Assets\Scripts\Level.cs" />
@@ -83,7 +84,15 @@
     <Compile Include="Assets\Scripts\Tools\Utils.cs" />
     <Compile Include="Assets\Scripts\UI\AnimationSpeed.cs" />
     <Compile Include="Assets\Scripts\UI\CPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\FieldArea.cs" />
+    <Compile Include="Assets\Scripts\UI\FieldBackground.cs" />
+    <Compile Include="Assets\Scripts\UI\GameCamera.cs" />
     <Compile Include="Assets\Scripts\UI\ItemCounter.cs" />
+    <Compile Include="Assets\Scripts\UI\LevelButton.cs" />
+    <Compile Include="Assets\Scripts\UI\LevelMap.cs" />
+    <Compile Include="Assets\Scripts\UI\MapLocation.cs" />
+    <Compile Include="Assets\Scripts\UI\ScoreStarFromMemory.cs" />
+    <Compile Include="Assets\Scripts\UI\SetSortingLayer.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>E:/GitHubClone/XiaoXiaoLe/XiaoXiaoLe/XiaoXiaoLeDemo/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

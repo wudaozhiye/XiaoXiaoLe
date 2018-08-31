@@ -12,6 +12,7 @@ public class SessionAssistant : MonoBehaviour {
     public bool squareCombination = true;
     public List<Combinations> combinations = new List<Combinations>();
     public List<ChipInfo> chipInfos = new List<ChipInfo>();
+    public List<BlockInfo> blockInfos = new List<BlockInfo>();
 
     public int lastMovementId;
     //移动步数
@@ -81,6 +82,11 @@ public class SessionAssistant : MonoBehaviour {
 
     #endregion
 
+    public void StartSession(FieldTarget sessionType, Limitation limitationType)
+    {
+
+    }
+
     [System.Serializable]
     public class ChipInfo
     {
@@ -89,7 +95,15 @@ public class SessionAssistant : MonoBehaviour {
         public bool color = true;
         public string shirtName = "";
     }
-
+    [System.Serializable]
+    public class BlockInfo
+    {
+        public string name = "";
+        public string contentName = "";
+        public string shirtName = "";
+        public int levelCount = 0;
+        public bool chip = false;
+    }
     [System.Serializable]
     public class Combinations
     {

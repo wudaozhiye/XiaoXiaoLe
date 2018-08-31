@@ -113,6 +113,35 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &7617113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 7617114}
+  m_Layer: 0
+  m_Name: Levels
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7617114
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 7617113}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 754377062}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &33948652
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +315,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294966271
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -319,6 +348,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 365433787}
+  - component: {fileID: 365433788}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -339,6 +369,30 @@ Transform:
   m_Father: {fileID: 33948653}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &365433788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 365433786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0578b04cc5b041b4fbb68d89d1cf8888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapSize: 1024
+  spawnOffset: 0.1
+  friction: 10
+  locations:
+  - {fileID: 114698193906286174, guid: 0ba85d9c660084149a349fff5d14cccb, type: 2}
+  - {fileID: 114667581970037434, guid: b85d40a20b2672441acb8037d888f868, type: 2}
+  - {fileID: 114844274000430910, guid: a72d646aa50ebfc42a04f8edc70107c2, type: 2}
+  - {fileID: 114581399582489074, guid: f429ba6ee662a0f4d92e3b5f341cfedc, type: 2}
+  - {fileID: 114529273113239622, guid: 753dbed3a6e4b7645bf619a00d66bcd1, type: 2}
+  - {fileID: 114334851138386048, guid: e22396a8d86d1384289fea4a4ac67d93, type: 2}
+  locationLevelNumber: 
+  camSizeMin: 0
+  camSizeMax: 0
 --- !u!1 &402599516
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,8 +406,11 @@ GameObject:
   - component: {fileID: 402599521}
   - component: {fileID: 402599520}
   - component: {fileID: 402599519}
-  - component: {fileID: 402599523}
   - component: {fileID: 402599524}
+  - component: {fileID: 402599527}
+  - component: {fileID: 402599526}
+  - component: {fileID: 402599525}
+  - component: {fileID: 402599523}
   m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
@@ -624,10 +681,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 402599516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f57e308f3a51fa40b09bb912083f95c, type: 3}
+  m_Script: {fileID: 11500000, guid: f3de2def3de69974daf3f0ead36522b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music_volume_max: 0.4
+  controlCamera: {fileID: 282840813}
 --- !u!114 &402599524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,6 +699,125 @@ MonoBehaviour:
   cItems:
   - item: {fileID: 100000, guid: 7f079ce847c73d348a1cceb9fe89334e, type: 2}
     category: Items
+  - item: {fileID: 170414, guid: 6ba2550084451e84b897124dbb1c67c2, type: 2}
+    category: UI
+--- !u!114 &402599525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 402599516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb25b4ed17f7f5745ac137925527c98f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockCountTotal: 0
+  jellyCountTotal: 0
+  jamCountTotal: 0000000000000000
+  squareCombination: 1
+  combinations: []
+  chipInfos: []
+  blockInfos: []
+  lastMovementId: 0
+  movesCount: 0
+  swapEvent: 0
+  countOfEachTargetCount: 000000000000000000000000000000000000000000000000
+  timeLeft: 0
+  eventCount: 0
+  score: 0
+  colorMask: 000000000000000000000000000000000000000000000000
+  creatingSugarDropsCount: 0
+  isPlaying: 0
+  outOfLimit: 0
+  creatingSugarTask: 0
+  reachedTheTarget: 0
+  firstChipGeneration: 0
+  matchCount: 0
+  stars: 0
+  iteraction: 0
+--- !u!114 &402599526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 402599516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7adac76209b6ad349b568aa64e5cfbdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &402599527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 402599516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2555e154bf08efa41ae9b6685545dd2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &754377061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 754377062}
+  - component: {fileID: 754377063}
+  m_Layer: 0
+  m_Name: Level:1,None,Moves
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &754377062
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 754377061}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7617114}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &754377063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 754377061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df44abae127f9404c8f3e61320003cb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile:
+    levelID: 0
+    level: 1
+    width: 9
+    height: 9
+    colorCount: 6
+    targetColorCount: 30
+    targetSugarDropsCount: 0
+    firstStarScore: 100
+    secondStarScore: 200
+    thirdStarScore: 300
+    stonePortion: 0
+    target: 0
+    limitation: 0
+    limit: 30
+    ai_difficult: 0.7
+    countOfEachTargetCount: 000000000000000000000000000000000000000000000000
+    slots: []
+    wall_vertical: []
+    wall_horizontal: []
 --- !u!1 &1597404325
 GameObject:
   m_ObjectHideFlags: 0

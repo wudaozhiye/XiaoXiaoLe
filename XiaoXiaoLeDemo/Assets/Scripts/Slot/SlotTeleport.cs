@@ -17,4 +17,19 @@ public class SlotTeleport : MonoBehaviour {
         slot = GetComponent<Slot>();
         slot.slotTeleport = this;
     }
+    public void Initialize()
+    {
+        if (!enabled) return;
+        Int2 position = target_postion;
+
+        target = Slot.GetSlot(position);
+        if (target)
+        {
+            target.teleportTarget = true;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
 }

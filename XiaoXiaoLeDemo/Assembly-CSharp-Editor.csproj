@@ -62,8 +62,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Editor\AudioAssistantEditor.cs" />
+    <Compile Include="Assets\Scripts\Editor\BerryPanel.cs" />
     <Compile Include="Assets\Scripts\Editor\ContentAssistantEditor.cs" />
     <Compile Include="Assets\Scripts\Editor\EditorUtils.cs" />
+    <Compile Include="Assets\Scripts\Editor\LevelEditor.cs" />
     <Compile Include="Assets\Scripts\Editor\UIAssistantEditor.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>E:/GitHubClone/XiaoXiaoLe/XiaoXiaoLe/XiaoXiaoLeDemo/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

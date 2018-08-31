@@ -2,13 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectParameters : MonoBehaviour {
-
-    public static ProjectParameters main;
-    void Awake()
-    {
-        main = this;
-    }
+public class ProjectParameters :Singleton <ProjectParameters>
+{
     //10点
     public int dailyreward_hour = 10;
     //30分钟 回复

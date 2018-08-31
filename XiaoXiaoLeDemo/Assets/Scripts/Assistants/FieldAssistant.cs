@@ -34,7 +34,7 @@ public class FieldAssistant : MonoBehaviour {
         yield return StartCoroutine(CreateField());
 
         SessionAssistant.main.enabled = true;
-        SessionAssistant.main.eventCount++;
+        SessionAssistant.main.eventCount ++;
 
         SessionAssistant.main.StartSession(LevelProfile.main.target, LevelProfile.main.limitation);
 
@@ -50,14 +50,14 @@ public class FieldAssistant : MonoBehaviour {
 
         Slot.all.Clear();
 
-        Vector3 fieldDimensions = new Vector3(field.width - 1, field.height - 1, 0) * ProjectParameters.main.slot_offset;
+        Vector3 fieldDimensions = new Vector3(field.width - 1, field.height - 1, 0) * ProjectParameters.Instance.slot_offset;
         foreach (SlotSettings settings in field.slots.Values)
         {
             yield return 0;
             Slot slot;
 
             #region Creating a new empty slot
-            Vector3 position = new Vector3(settings.position.x, settings.position.y, 0) * ProjectParameters.main.slot_offset - fieldDimensions / 2;
+            Vector3 position = new Vector3(settings.position.x, settings.position.y, 0) * ProjectParameters.Instance.slot_offset - fieldDimensions / 2;
             GameObject obj = ContentAssistant.main.GetItem("SlotEmpty", position);
             obj.name = "Slot_" + settings.position.x + "x" + settings.position.y;
             obj.transform.SetParent(Slot.folder);

@@ -107,7 +107,7 @@ public class AudioAssistant : MonoBehaviour {
         {
             while (delay > 0)
             {
-                music.volume = delay * musicVolume * ProjectParameters.main.music_volume_max;
+                music.volume = delay * musicVolume * ProjectParameters.Instance.music_volume_max;
                 delay -= Time.unscaledDeltaTime;
                 yield return 0;
             }
@@ -122,11 +122,11 @@ public class AudioAssistant : MonoBehaviour {
         if (!music.isPlaying) music.Play();
         while (delay < 0.3f)
         {
-            music.volume = delay * musicVolume * ProjectParameters.main.music_volume_max;
+            music.volume = delay * musicVolume * ProjectParameters.Instance.music_volume_max;
             delay += Time.unscaledDeltaTime;
             yield return 0;
         }
-        music.volume = musicVolume * ProjectParameters.main.music_volume_max;
+        music.volume = musicVolume * ProjectParameters.Instance.music_volume_max;
     }
     // A single sound effect
     public static void Shot(string clip)
@@ -153,7 +153,7 @@ public class AudioAssistant : MonoBehaviour {
     public void ChangeMusicVolume(float v)
     {
         musicVolume = v;
-        music.volume = musicVolume * ProjectParameters.main.music_volume_max;
+        music.volume = musicVolume * ProjectParameters.Instance.music_volume_max;
     }
 
     public void ChangeSFXVolume(float v)
